@@ -21,10 +21,13 @@ Extract cookieHider.js to your gm_scripts folder
 
 脚本将在举报按钮后面自动添加一个'屏蔽按钮',如下图:
 Simply,you can forbid some cookies by click on the new '屏蔽' button,like that:
+
 ![shield](https://raw.githubusercontent.com/Smallpath/CookieHider/master/shortcut.jpg)
+
 
 为了将饼干移出黑名单,脚本在工具栏下添加一个新按钮,如下图:
 This script add a new button just at the bottom of scroll tools,like that:
+
 ![screenShot](https://raw.githubusercontent.com/Smallpath/CookieHider/master/screenShot.jpg)
 
 点击后,你可以输入三种类型的命令
