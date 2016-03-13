@@ -56,7 +56,7 @@ $('#h-tool').on('click','#edit-cookie',function(){
     return location.reload();;
   }
    
-  if(str.indexOf(/delete\s/)!=-1){
+  if(str.indexOf('delete ')!=-1){
     str = str.replace(/delete\s/g,'');
     var newArr =[];
     blackList.forEach(function(item){
@@ -65,8 +65,7 @@ $('#h-tool').on('click','#edit-cookie',function(){
     });
     blackList = newArr;
     GM_setValue('CookieHider',blackList.toString());
-    location.reload();
-    return;
+    return location.reload();
   }
   
   if(str){
@@ -76,8 +75,7 @@ $('#h-tool').on('click','#edit-cookie',function(){
      GM_setValue('CookieHider',str.toString());
     else
      GM_setValue('CookieHider',blackList.toString());
-    location.reload();
-    return;
+    return location.reload();
   }
 
     
