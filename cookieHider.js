@@ -2,7 +2,7 @@
 // @name        Cookie Hider
 // @namespace   Smallpath2013@gmail.com
 // @description Hide cookies you don't like
-// @include     http://h.nimingban.com/
+// @match       http://h.nimingban.com/*
 // @version     1
 // @grant       none
 // ==/UserScript==
