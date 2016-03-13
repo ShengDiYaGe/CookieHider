@@ -41,6 +41,26 @@ try{
   //console.log('blackList:'+blackList)
 }catch(err){console.log(err)}
 
+
+
+var targetElements = $.makeArray($('span.h-threads-info-report-btn'));
+  Array.prototype._forEach.call(targetElements, function (item, index) {
+    if($(item).find('a').text() == '举报')
+     $(item).append('<span class="h-threads-info-report-btn shield">[<a>屏蔽</a>]</span>');
+  });
+
+
+
+$('.shield').each(function(k,v){
+  $(v).find('a').click(function(e){
+      var wow = $(this).parent().parent().parent().children('.h-threads-info-uid');
+      blackList.push(wow.text().replace('ID:',''));
+      GM_setValue('CookieHider',blackList.toString());
+      return location.reload();
+  })
+})
+
+
 $("#h-tool").append('<a title="前往底部" id="edit-cookie" class="h-tool-btn">'
                                   +'<i class="uk-icon-cog"></i></a>');
 
