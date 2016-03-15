@@ -42,7 +42,6 @@ try{
 }catch(err){console.log(err)}
 
 
-
 var targetElements = $.makeArray($('span.h-threads-info-report-btn'));
   Array.prototype._forEach.call(targetElements, function (item, index) {
     if($(item).find('a').text() == '举报')
@@ -53,10 +52,14 @@ var targetElements = $.makeArray($('span.h-threads-info-report-btn'));
 
 $('.shield').each(function(k,v){
   $(v).find('a').click(function(e){
-      var wow = $(this).parent().parent().parent().children('.h-threads-info-uid');
+      var item = $(this).parent().parent().parent();
+      //alert(item.parent().parent().next('hr').length.toString()+' '+(item.parent().attr('class') == 'h-threads-item-main').toString());
+      //if(item.parent().attr('class') == 'h-threads-item-main')
+      //  item.parent().parent().next('hr').hide();
+      var wow = item.children('.h-threads-info-uid');
       blackList.push(wow.text().replace('ID:',''));
       GM_setValue('CookieHider',blackList.toString());
-      return location.reload();
+      hideCookie(blackList);
   })
 })
 
@@ -73,7 +76,7 @@ $('#h-tool').on('click','#edit-cookie',function(){
   if(str=='reset'){
     blackList=[];
     GM_setValue('CookieHider','');
-    return location.reload();;
+    return location.reload();
   }
    
   if(str.indexOf('delete ')!=-1){
@@ -87,17 +90,6 @@ $('#h-tool').on('click','#edit-cookie',function(){
     GM_setValue('CookieHider',blackList.toString());
     return location.reload();
   }
-  
-  if(str){
-    var str = str.replace(/,|\s/g,'');
-    blackList.push(str);
-    if(blackListRes=='')
-     GM_setValue('CookieHider',str.toString());
-    else
-     GM_setValue('CookieHider',blackList.toString());
-    return location.reload();
-  }
-
     
 });
 
