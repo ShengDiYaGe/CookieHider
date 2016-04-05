@@ -46,7 +46,7 @@ Array.prototype._includes = Array.prototype._includes || function(str){
 /************************
 *读取黑名单
 *************************/ 
-var version = 0.1;
+var version = 1.1;
 var blackList = new Array();
 var blackListRes = GM_getValue('CookieHider', '');
 if (blackListRes != '')
@@ -71,9 +71,8 @@ $('.shield').each(function (k, v) {
     if(item.parent().attr('class') == 'h-threads-item-main')
       item.parent().parent().next('hr').hide();
     
-    var wow = item.children('.h-threads-info-uid');
-    console.log(wow.text());
-    blackList.push(wow.text().replace('ID:', ''));
+    var $uid = item.children('.h-threads-info-uid');
+    blackList.push($uid.text().replace('ID:', ''));
     GM_setValue('CookieHider', blackList.toString());
     hideCookie(blackList);
   })
