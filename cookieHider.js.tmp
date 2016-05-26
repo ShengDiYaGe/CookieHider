@@ -46,7 +46,7 @@ Array.prototype._includes = Array.prototype._includes || function(str){
 /************************
 *读取黑名单
 *************************/ 
-var version = 1.3;
+var version = 0.1;
 var blackList = new Array();
 var blackListRes = GM_getValue('CookieHider', '');
 if (blackListRes != '')
